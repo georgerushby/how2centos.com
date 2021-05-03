@@ -1,0 +1,73 @@
+# Project information
+site_name: How2CentOS
+
+# Google Analytics
+google_analytics:
+  - UA-46450242-1
+  - auto
+
+# Repository
+repo_name: georgerushby/how2centos.com
+repo_url: https://github.com/georgerushby/how2centos.com
+edit_uri: ""
+
+# Configuration
+theme:
+  name: null
+  custom_dir: material
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Necessary for search to work properly
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+#  features:
+#    - navigation.sections
+#    - navigation.tabs
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+# Extensions
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+# Page tree
+nav:
+  - Home: index.md
+  - Apache:
+    - 301 Redirect: 301-redirect.md
+  - CentOS 5.2 Tutorials:
+    - Installing AIDE on CentOS 5.2: installing-aide-on-centos-5-2.md
+  - CentOS 5.3 Tutorials:
+    - Adding CentOS 5.3 to a local YUM Repository: adding-centos-5-3-to-a-local-yum-repository.md
+  - CentOS 5.4 Tutorials:
+    - Adding CentOS 5.4 to a local YUM Repository: adding-centos-5-4-to-a-local-yum-repository.md
+  - CentOS 5.5 Tutorials:
+    - Adding CentOS 5.5 to a local YUM Repository: adding-centos-5-5-to-a-local-yum-repository.md
+    - Apache with mod_pagespeed on CentOS 5.5: apache-with-mod-pagespeed-on-centos-5-5.md
+  - CentOS 5.6 Tutorials:
+    - Adding CentOS 5.6 to a local YUM Repository: adding-centos-5-6-to-a-local-yum-repository.md
