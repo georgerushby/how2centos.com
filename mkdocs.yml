@@ -2,9 +2,10 @@
 site_name: How2CentOS
 
 # Google Analytics
-google_analytics:
-  - UA-46450242-1
-  - auto
+extra:
+  analytics:
+    provider: google
+    property: G-WYXN73NMKY
 
 # Repository
 repo_name: georgerushby/how2centos.com
