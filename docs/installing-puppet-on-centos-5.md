@@ -12,31 +12,31 @@ For a more complete description visit [Puppet Labs.](http://reductivelabs.com/tr
 
 ### Install the Puppet Repository
 
-```
+```bash
 rpm -ivh http://yum.puppetlabs.com/el/6/products/i386/puppetlabs-release-6-7.noarch.rpm
 ```
 
 ### Install the Puppet Master packages
 
-```
+```bash
 yum install puppet-server
 ```
 
 ### Install the Puppet Client packages
 
-```
+```bash
 yum install puppet
 ```
 
 ## A Simple Manifest: Managing Ownership of a File
 
-Step 1: Create a minimal manifest file called site.pp in /etc/puppet/manifests with the following content:
+### Step 1: Create a minimal manifest file called site.pp in /etc/puppet/manifests with the following content
 
-```
+```bash
 vi /etc/puppet/manifests/site.pp
 ```
 
-```
+```bash
 /etc/puppet/manifests/site.pp
 
 import "classes/*"
@@ -46,13 +46,13 @@ node default {
  }
 ```
 
-Step 2: Next create the sudo.pp class in `/etc/puppet/manifests/classes/` with the following content:
+### Step 2: Next create the sudo.pp class in `/etc/puppet/manifests/classes/` with the following content
 
-```
+```bash
 vi /etc/puppet/manifests/classes/sudo.pp
 ```
 
-```
+```kbd
 class sudo {
     file { "/etc/sudoers":
         owner => "root",
@@ -64,12 +64,13 @@ class sudo {
 
 This class which will ensure that the owner, group, and mode of the `/etc/sudoers` file will be set consistently across all systems that belong to that class.
 
-Step 3: Start the Puppet Master service and enable startup on boot 
+### Step 3: Start the Puppet Master service and enable startup on boot
 
-```
+```bash
 service puppetmaster start
 ```
-```
+
+```bash
 chkconfig puppetmaster on
 ```
 
@@ -77,11 +78,11 @@ chkconfig puppetmaster on
 
 Configure the puppet client to connect to the server and enable logging. Edit the file `/etc/sysconfig/puppet` and uncomment the `PUPPET\_LOG` and `PUPPET\_SERVER` line specifying the servers address.
 
-```
+```bash
 vi /etc/sysconfig/puppet
 ```
 
-```
+```kdb
 # The puppetmaster server
 PUPPET_SERVER=PuppetMaster
 
@@ -97,23 +98,30 @@ PUPPET_LOG=/var/log/puppet/puppet.log
 
 The client will automatically pull configuration from the server every 30 minutes, start it as a service and enable startup on boot
 
-```
+```bash
 service puppet start
 ```
-```
+
+```bash
 chkconfig puppet on
 ```
 
 ### Sign the SSL key request from the Puppet Client
 
-In order for the two systems to communicate securely we need to create signed SSL certificates. You should be logged into both the _Puppet Master_ and _Puppet_ machines for this next step. 
+In order for the two systems to communicate securely we need to create signed SSL certificates. You should be logged into both the _Puppet Master_ and _Puppet_ machines for this next step.
 
-```
+```bash
 puppetca --list
 ```
-server2.example.co.za
 
+```kbd
+server2.example.co.za
 ```
+
+```bash
 puppetca --sign server2.example.co.za
 ```
+
+```kbd
 Signed server2.example.co.za
+```

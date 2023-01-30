@@ -60,6 +60,8 @@ nav:
   - Home: index.md
   - Apache:
     - 301 Redirect: 301-redirect.md
+  - CentOS 5 Tutorials:
+    - Installing Puppet on CentOS 5: installing-puppet-on-centos-5.md
   - CentOS 5.2 Tutorials:
     - Installing AIDE on CentOS 5.2: installing-aide-on-centos-5-2.md
   - CentOS 5.3 Tutorials:
